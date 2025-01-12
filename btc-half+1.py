@@ -12,7 +12,7 @@ end   = 0x1fffffffffffffffff
 
 begin = (end + begin) // 2
 
-i = begin
+i = 295197905179355309855
 counter = 1
 while i < end:
     hex_key = hs.num_to_hex64(i)
