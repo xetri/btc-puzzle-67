@@ -7,15 +7,15 @@ import helpers as hs
 
 compressed_addr = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
 
-begin = 100000000000000000
+begin = 0x100000000000000000
 end   = 0x1fffffffffffffffff
 
-end = end - int(0.05 * begin)
-endset = end - int(0.05 * end)
+end = end - int(0.000005 * begin)
+endset = end - int(0.000005 * end)
 
-i = 590290810358675193211
+# i = end
 
-__f = open("./privkeys/progress-2.txt")
+__f = open("./privkeys/progress-end-2.txt")
 i = int(__f.read())
 __f.close()
 
@@ -25,13 +25,13 @@ while i > endset:
     assumed_addr = hs.pvkhex_to_address_compressed(hex_key)
 
     if assumed_addr == compressed_addr:
-        with open("./privkeys/-2.txt", "w+") as f: f.write(str(i) + ": " + assumed_addr + ": "  + hex_key)
-        with open("./success-2", "w+"): f.write(__name__ +  " Found Dis")
+        with open("./privkeys/end-2.txt", "w+") as f: f.write(str(i) + ": " + assumed_addr + ": "  + hex_key)
+        with open("./success-end-2", "w+"): f.write(__name__ +  " Found Dis")
         print("Found bich")
         exit()
 
     i -= 1
-    if counter % 500 == 0: 
-        with open("./privkeys/progress-2.txt", "w+") as f: f.write(str(i))
+    if counter % 10000 == 0: 
+        with open("./privkeys/progress-end-2.txt", "w+") as f: f.write(str(i))
     counter += 1
 

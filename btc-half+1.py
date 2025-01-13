@@ -12,7 +12,7 @@ end   = 0x1fffffffffffffffff
 
 begin = (end + begin) // 2
 
-i = 295197905179373221855
+# i = begin
 
 __f = open("./privkeys/progress-half+1.txt")
 i = int(__f.read())
@@ -30,7 +30,7 @@ while i < end:
         exit()
 
     i += 1
-    if counter % 2000 == 0: 
+    if counter % 10000 == 0: 
         with open("./privkeys/progress-half+1.txt", "w+") as f: f.write(str(i))
     counter += 1
 

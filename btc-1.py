@@ -7,13 +7,12 @@ import helpers as hs
 
 compressed_addr = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
 
-begin = 100000000000000000
+begin = 0x100000000000000000
 end   = 0x1fffffffffffffffff
 
-endset = begin + 0.05 * begin
+endset = begin + 0.000005 * begin
 
-i = 100000000029486000
-
+# i = begin
 __f = open("./privkeys/progress1.txt")
 i = int(__f.read())
 __f.close()
@@ -30,7 +29,7 @@ while i < endset:
         exit()
 
     i += 1
-    if counter % 500 == 0: 
+    if counter % 10000 == 0: 
         with open("./privkeys/progress1.txt", "w+") as f: f.write(str(i))
     counter += 1
 

@@ -9,7 +9,7 @@ import time
 
 compressed_addr = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
 
-begin = 100000000000000000
+begin = 0x100000000000000000
 end   = 0x1fffffffffffffffff
 
 b1, e1 = begin, int(0.2 * end)
@@ -38,7 +38,7 @@ while True:
                 hex_key = hs.num_to_hex64(n + i)
                 assumed_addr = hs.pvkhex_to_address_compressed(hex_key)
                 if assumed_addr == compressed_addr:
-                    with open("./privkeys/random-" + "1m" + ".txt", "w+") as f: f.write(str(n + i) + ": " + assumed_addr + ": "  + hex_key)
+                    with open("./privkeys/random-" + "1m" + id + ".txt", "w+") as f: f.write(str(n + i) + ": " + assumed_addr + ": "  + hex_key)
                     with open("./success-random-" + "1m", "w+"): f.write(__name__ +  " Found Dis")
                     print("Found bich")
                     exit()
@@ -47,7 +47,7 @@ while True:
                 hex_key = hs.num_to_hex64(n - i)
                 assumed_addr = hs.pvkhex_to_address_compressed(hex_key)
                 if assumed_addr == compressed_addr:
-                    with open("./privkeys/random-" + "1m" + ".txt", "w+") as f: f.write(str(n - i) + ": " + assumed_addr + ": "  + hex_key)
+                    with open("./privkeys/random-" + "1m" + id + ".txt", "w+") as f: f.write(str(n - i) + ": " + assumed_addr + ": "  + hex_key)
                     with open("./success-random-" + "1m", "w+"): f.write(__name__ +  " Found Dis")
                     print("Found bich")
                     exit()
