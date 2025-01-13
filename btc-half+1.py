@@ -7,7 +7,7 @@ import helpers as hs
 
 compressed_addr = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
 
-begin = 100000000000000000
+begin = 0x100000000000000000
 end   = 0x1fffffffffffffffff
 
 begin = (end + begin) // 2

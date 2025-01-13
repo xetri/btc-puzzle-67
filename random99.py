@@ -12,23 +12,25 @@ compressed_addr = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
 begin = 0x100000000000000000
 end   = 0x1fffffffffffffffff
 
-b1, e1 = begin, int(0.1 * end)
-b2, e2 = e1, int(0.2 * end)
-b3, e3 = e2, int(0.3 * end)
-b4, e4 = e3, int(0.4 * end)
-b5, e5 = e4 , int(0.5 * end)
-b6, e6 = e5, int(0.6 * end)
-b7, e7 = e6, int(0.7 * end)
-b8, e8 = e7, int(0.8 * end)
-b9, e9 = e8, int(0.9 * end)
-b10, e10 = e9, end
+mid = (end + begin) // 2
+ 
+# b1, e1 = begin, int(0.1 * end)
+# b2, e2 = e1, int(0.2 * end)
+# b3, e3 = e2, int(0.3 * end)
+# b4, e4 = e3, int(0.4 * end)
+# b5, e5 = e4 , int(0.5 * end)
+# b6, e6 = e5, int(0.6 * end)
+# b7, e7 = e6, int(0.7 * end)
+# b8, e8 = e7, int(0.8 * end)
+# b9, e9 = e8, int(0.9 * end)
+# b10, e10 = e9, end
 
 # key_text = ""
 # counter = 0
 id = str(int(time.time()))
 
 while True:
-    ns = [random.randint(b1, e1), random.randint(b2, e2), random.randint(b3, e3), random.randint(b4, e4), random.randint(b5, e5), random.randint(b6, e6), random.randint(b7, e7), random.randint(b8, e8), random.randint(b9, e9), random.randint(b10, e10)] 
+    ns = [random.randint(begin, mid), random.randint(mid, end)]
 
     for n in ns:
         hex_key = hs.num_to_hex64(n)
