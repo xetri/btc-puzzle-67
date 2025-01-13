@@ -5,6 +5,7 @@
 
 import helpers as hs
 import random
+import time
 
 compressed_addr = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
 
@@ -22,6 +23,10 @@ b8, e8 = e7, int(0.8 * end)
 b9, e9 = e8, int(0.9 * end)
 b10, e10 = e9, end
 
+# key_text = ""
+# counter = 0
+id = str(int(time.time()))
+
 while True:
     ns = [random.randint(b1, e1), random.randint(b2, e2), random.randint(b3, e3), random.randint(b4, e4), random.randint(b5, e5), random.randint(b6, e6), random.randint(b7, e7), random.randint(b8, e8), random.randint(b9, e9), random.randint(b10, e10)] 
 
@@ -34,3 +39,11 @@ while True:
             with open("./success-random-" + "heist", "w+"): f.write(__name__ +  " Found Dis")
             print("Found bich")
             exit()
+
+        # counter += 1
+        # key_text += str(n) + "\n"
+
+        # if counter % 10000 == 0:
+            # with open("random-keys/random101-" + id + ".txt", "a+") as f:
+                # f.write(key_text)
+                # key_text = ""

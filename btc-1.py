@@ -12,7 +12,12 @@ end   = 0x1fffffffffffffffff
 
 endset = begin + 0.05 * begin
 
-i = 100000000011289500
+i = 100000000029486000
+
+__f = open("./privkeys/progress1.txt")
+i = int(__f.read())
+__f.close()
+
 counter = 1
 while i < endset:
     hex_key = hs.num_to_hex64(i)

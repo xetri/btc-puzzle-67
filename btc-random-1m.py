@@ -31,15 +31,15 @@ while True:
 
     for n in ns:
         # key_text += str(n) + "\n"
-        for i in range(1, 100000):
+        for i in range(1, 1000000):
             # counter += 3
             if n + i < end:
                 # key_text += str(n + i) + "\n"
                 hex_key = hs.num_to_hex64(n + i)
                 assumed_addr = hs.pvkhex_to_address_compressed(hex_key)
                 if assumed_addr == compressed_addr:
-                    with open("./privkeys/random-" + "100k" + ".txt", "w+") as f: f.write(str(n + i) + ": " + assumed_addr + ": "  + hex_key)
-                    with open("./success-random-" + "100k", "w+"): f.write(__name__ +  " Found Dis")
+                    with open("./privkeys/random-" + "1m" + ".txt", "w+") as f: f.write(str(n + i) + ": " + assumed_addr + ": "  + hex_key)
+                    with open("./success-random-" + "1m", "w+"): f.write(__name__ +  " Found Dis")
                     print("Found bich")
                     exit()
             if n - i > begin:
@@ -47,12 +47,12 @@ while True:
                 hex_key = hs.num_to_hex64(n - i)
                 assumed_addr = hs.pvkhex_to_address_compressed(hex_key)
                 if assumed_addr == compressed_addr:
-                    with open("./privkeys/random-" + "100k" + ".txt", "w+") as f: f.write(str(n - i) + ": " + assumed_addr + ": "  + hex_key)
-                    with open("./success-random-" + "100k", "w+"): f.write(__name__ +  " Found Dis")
+                    with open("./privkeys/random-" + "1m" + ".txt", "w+") as f: f.write(str(n - i) + ": " + assumed_addr + ": "  + hex_key)
+                    with open("./success-random-" + "1m", "w+"): f.write(__name__ +  " Found Dis")
                     print("Found bich")
                     exit()
 
             # if counter % 9000 == 0:
-            #     with open("./random-keys/btc-random-100k" + id + ".txt", "a+") as f:
+            #     with open("./random-keys/btc-random-1m" + id + ".txt", "a+") as f:
             #         f.write(key_text)
             #         key_text = ""

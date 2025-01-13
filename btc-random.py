@@ -5,11 +5,16 @@
 
 import helpers as hs
 import random
+import time
 
 compressed_addr = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
 
 begin = 100000000000000000
 end   = 0x1fffffffffffffffff
+
+# key_text = ""
+# counter = 0
+id = str(int(time.time()))
 
 while True:
     num = random.randint(begin, end)
@@ -21,3 +26,10 @@ while True:
         with open("./success-random-" + str(num), "w+"): f.write(__name__ +  " Found Dis")
         print("Found bich")
         exit()
+
+    # counter += 1
+    # key_text += str(num) + "\n"
+
+    # if counter % 10000 == 0:
+    #     with open("random-keys/btc-random" + id + ".txt", "a+") as f: f.write(key_text)
+    #     key_text = ""

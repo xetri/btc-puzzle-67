@@ -21,7 +21,7 @@ while i < len(hexs):
 
     if gotaddr == addr:
         with open("./wiflist.txt", "a+") as f:
-            f.write(hs.hex_to_wif(privkey) + "\n")
+            f.write(hs.hex_to_wif(privkey, True) + "\n")
 
     print("True(^)" if gotaddr == addr else "False (X)")
 
