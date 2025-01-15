@@ -1,6 +1,8 @@
 import ecdsa, codecs, hashlib, binascii
 import base58
+# from functools import cache
 
+# @cache
 def num_to_hex64(numkey):
     key = hex(numkey)[2:]
     prefix = "0" * (64 - len(key))
@@ -29,6 +31,18 @@ def wif_to_hex(wif_key):
     hex_key = decoded[2:-10]
     return hex_key
 
+def pvhex_to_comp_pubkey(z):
+    pvk_to_bytes = codecs.decode(z, 'hex')
+
+    key = ecdsa.SigningKey.from_string(pvk_to_bytes, curve=ecdsa.SECP256k1).verifying_key
+    key_bytes = key.to_string()
+    key_hex = codecs.encode(key_bytes, 'hex').decode('utf-8')
+
+    if ord(bytearray.fromhex(key_hex[-2:])) % 2 == 0: public_key_compressed = '02' + key_hex[0:64]
+    else:  public_key_compressed = '03' + key_hex[0:64]
+    
+    return public_key_compressed
+
 def pvkhex_to_address_uncompressed(z):
     zk = ecdsa.SigningKey.from_string(codecs.decode(z, 'hex'), curve=ecdsa.SECP256k1)
     # zk_verify = zk.verifying_key
@@ -51,7 +65,7 @@ def pvkhex_to_address_uncompressed(z):
     btc_uncompressed_address_std = base58.b58encode(binascii.unhexlify(step7)).decode('utf-8')
     return btc_uncompressed_address_std
 
-
+# @cache
 def pvkhex_to_address_compressed(z):
     pvk_to_bytes = codecs.decode(z, 'hex')
 

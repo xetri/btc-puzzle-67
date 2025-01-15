@@ -1,6 +1,8 @@
 import ecdsa, codecs, hashlib, binascii
 import base58
+# from functools import cache
 
+# @cache
 def num_to_hex64(numkey):
     key = hex(numkey)[2:]
     prefix = "0" * (64 - len(key))
@@ -51,7 +53,7 @@ def pvkhex_to_address_uncompressed(z):
     btc_uncompressed_address_std = base58.b58encode(binascii.unhexlify(step7)).decode('utf-8')
     return btc_uncompressed_address_std
 
-
+# @cache
 def pvkhex_to_address_compressed(z):
     pvk_to_bytes = codecs.decode(z, 'hex')
 
