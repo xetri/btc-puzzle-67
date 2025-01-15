@@ -17,6 +17,6 @@ while i > config.Z - 1:
         exit()
 
     i -= 1
-    if counter % 10000 == 0: 
+    if counter % 5000 == 0: 
         with open("./priv/progress-end.txt", "w+") as f: f.write(str(i))
     counter += 1

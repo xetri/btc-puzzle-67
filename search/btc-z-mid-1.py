@@ -1,13 +1,13 @@
 import helpers as hs
 import config
 
-i = config.begin
+i = (config.begin + config.Z) // 2
 try:
-    with open("./priv/progress-begin.txt") as f: i = int(f.read())
-except: i = config.begin
+    with open("./priv/progress-z-mid-1.txt") as f: i = int(f.read())
+except: pass
 
 counter = 1
-while i < config.Z + 1:
+while i > config.begin:
     hex_key = hs.num_to_hex64(i)
     assumed_addr = hs.pvkhex_to_address_compressed(hex_key)
 
@@ -16,7 +16,7 @@ while i < config.Z + 1:
         print("Found bich")
         exit()
 
-    i += 1
+    i -= 1
     if counter % 5000 == 0: 
-        with open("./priv/progress-begin.txt", "w+") as f: f.write(str(i))
+        with open("./priv/progress-z-mid-1.txt", "w+") as f: f.write(str(i))
     counter += 1
