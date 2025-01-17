@@ -4,53 +4,38 @@ import threading
 
 def Scan(begin, end):
     t1, t2 = threading.Thread(target=Down, args=(begin, end)), threading.Thread(target=Up, args=(begin, end))
-
     t1.start()
     t2.start()
-    # t1.join()
-    # t2.join()
 
 def Down(begin, end):
-    m = (begin + end) // 2
-    
-    tc1, tc2 = threading.Thread(target=ptrDecScan, args=(m, begin)), threading.Thread(target=ptrIncScan, args=(m, end))
-    td1, td2 = threading.Thread(target=Down, args=(begin, m)), threading.Thread(target=Down, args=(m, end))
-    tu1, tu2 = threading.Thread(target=Up, args=(begin, m)), threading.Thread(target=Up, args=(m, end))
+    if end - begin <= 1:
+        search(begin)
+        return
 
-    tc1.start()
-    tc2.start()
+    m = (begin + end) // 2
+    td1 = threading.Thread(target=Down, args=(begin, m))
+    td2 = threading.Thread(target=Down, args=(m, end))
+    tc1 = threading.Thread(target=ptrDecScan, args=(m, begin))
+    tc2 = threading.Thread(target=ptrIncScan, args=(m, end))
     td1.start()
     td2.start()
-    tu1.start()
-    tu2.start()
-
-    # tc1.join()
-    # tc2.join()
-    # td1.join()
-    # td2.join()
-    # tu1.join()
-    # tu2.join()
+    tc1.start()
+    tc2.start()
 
 def Up(begin, end):
-    m = (begin + end) // 2
-    
-    tc1, tc2 = threading.Thread(target=ptrDecScan, args=(m, begin)), threading.Thread(target=ptrIncScan, args=(m, end))
-    td1, td2 = threading.Thread(target=Down, args=(begin, m)), threading.Thread(target=Down, args=(m, end))
-    tu1, tu2 = threading.Thread(target=Up, args=(begin, m)), threading.Thread(target=Up, args=(m, end))
+    if end - begin <= 1:
+        search(begin)
+        return
 
-    tc1.start()
-    tc2.start()
-    td1.start()
-    td2.start()
+    m = (begin + end) // 2
+    tu1 = threading.Thread(target=Up, args=(begin, m))
+    tu2 = threading.Thread(target=Up, args=(m, end))
+    tc1 = threading.Thread(target=ptrDecScan, args=(m, begin))
+    tc2 = threading.Thread(target=ptrIncScan, args=(m, end))
     tu1.start()
     tu2.start()
-
-    # tc1.join()
-    # tc2.join()
-    # td1.join()
-    # td2.join()
-    # tu1.join()
-    # tu2.join()
+    tc1.start()
+    tc2.start()
 
 def ptrDecScan(n, delim):
     i = n
