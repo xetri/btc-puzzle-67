@@ -30,6 +30,6 @@ def search(i):
     assumed_addr = hs.pvkhex_to_address_compressed(hex_key)
 
     if assumed_addr == config.comp_addr:
-        with open("./success-begin-" + str(i) + ".txt", "w+") as f: f.write(str(i) + ": " + assumed_addr + ": "  + hex_key)
+        with open("./success-begin-" + str(i) + ".txt", "a+") as f: f.write(str(i) + ": " + assumed_addr + ": "  + hex_key + "\n")
         print("Found bich")
         exit()
