@@ -7,8 +7,8 @@ def Scan(begin, end):
 
     t1.start()
     t2.start()
-    t1.join()
-    t2.join()
+    # t1.join()
+    # t2.join()
 
 def Down(begin, end):
     m = (begin + end) // 2
@@ -24,12 +24,12 @@ def Down(begin, end):
     tu1.start()
     tu2.start()
 
-    tc1.join()
-    tc2.join()
-    td1.join()
-    td2.join()
-    tu1.join()
-    tu2.join()
+    # tc1.join()
+    # tc2.join()
+    # td1.join()
+    # td2.join()
+    # tu1.join()
+    # tu2.join()
 
 def Up(begin, end):
     m = (begin + end) // 2
@@ -45,12 +45,12 @@ def Up(begin, end):
     tu1.start()
     tu2.start()
 
-    tc1.join()
-    tc2.join()
-    td1.join()
-    td2.join()
-    tu1.join()
-    tu2.join()
+    # tc1.join()
+    # tc2.join()
+    # td1.join()
+    # td2.join()
+    # tu1.join()
+    # tu2.join()
 
 def ptrDecScan(n, delim):
     i = n
