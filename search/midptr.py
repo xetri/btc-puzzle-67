@@ -3,7 +3,7 @@ import config
 import threading
 
 def Scan(begin, end):
-    threading.Thread(target=divide_and_conquer, args=(begin, end)).start()
+    divide_and_conquer(begin, end)
 
 def divide_and_conquer(begin, end):
     if end - begin <= 1:

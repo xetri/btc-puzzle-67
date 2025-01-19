@@ -12,8 +12,7 @@ def search(i):
         print("Found bich")
         exit()
 
-
 while True:
-    nums = [random.randint(config.begin, config.Z + 1), random.randint(config.bR - 1, config.end)]
+    nums = [random.randint(config.begin, config.Z + 1), random.randint(config.bR - 1, config.end), random.randint(config.begin, config.end)]
 
     for n in nums: threading.Thread(target=search, args=(n,)).start()
